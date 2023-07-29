@@ -1,6 +1,6 @@
 {
   "name": "ol-wfs-capabilities",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Format for reading WFS capabilities data",
   "main": "lib/WFSCapabilities.js",
   "module": "lib/WFSCapabilities.js",
@@ -26,7 +26,7 @@
     "url": "https://github.com/GastonZalba/ol-wfscapabilities/issues"
   },
   "author": "Gastón Zalba",
-  "license": "",
+  "license": "MIT",
   "peerDependencies": {
     "ol": ">= 5.0.0"
   },
