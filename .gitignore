@@ -1,0 +1,4 @@
+node_modules
+test/more-examples
+test/*.json
+.vscode

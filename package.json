@@ -1,0 +1,66 @@
+{
+  "name": "ol-wfs-capabilities",
+  "version": "1.0.0",
+  "description": "Format for reading WFS capabilities data",
+  "main": "lib/WFSCapabilities.js",
+  "module": "lib/WFSCapabilities.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint lib",
+    "format": "eslint --fix lib",
+    "test": "jest"
+  },
+  "keywords": [
+    "ol",
+    "openlayers",
+    "capabilities",
+    "getCapabilities",
+    "wfs",
+    "geoserver"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/GastonZalba/ol-wfscapabilities.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GastonZalba/ol-wfscapabilities/issues"
+  },
+  "author": "Gastón Zalba",
+  "license": "",
+  "peerDependencies": {
+    "ol": ">= 5.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.9",
+    "@openlayers/eslint-plugin": "^4.0.0",
+    "babel-jest": "^29.6.1",
+    "eslint": "^8.46.0",
+    "eslint-config-openlayers": "^18.0.0",
+    "jest": "^29.6.2",
+    "jest-environment-jsdom": "^29.6.1",
+    "jest-extended": "^2.0.0",
+    "ol": "^7.4.0"
+  },
+  "dependencies": {},
+  "eslintConfig": {
+    "extends": "openlayers",
+    "plugins": [
+      "@openlayers"
+    ],
+    "rules": {
+      "jsdoc/no-bad-blocks": "off",
+      "import/no-commonjs": "error",
+      "@openlayers/no-exclusive-tests": [
+        "error",
+        {
+          "include": "test/**/*.test.js"
+        }
+      ]
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
