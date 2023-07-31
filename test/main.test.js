@@ -61,14 +61,16 @@ describe("Capabilities Parser - version 2.0.0", () => {
 
     test("FeatureTypeList", () => {
         expect(parsed.FeatureTypeList.length).toBeGreaterThan(1);
-        expect(parsed.FeatureTypeList[0].Name).toBeString();
-        expect(parsed.FeatureTypeList[0].Title).toBeString();
-        expect(parsed.FeatureTypeList[0].Abstract).toBeString();
-        expect(parsed.FeatureTypeList[0].Keywords).toBeArray();
-        expect(parsed.FeatureTypeList[0].DefaultCRS).toBeString();
+        expect(parsed.FeatureTypeList[1].Name).toBeString();
+        expect(parsed.FeatureTypeList[1].Title).toBeString();
+        expect(parsed.FeatureTypeList[1].Abstract).toBeString();
+        expect(parsed.FeatureTypeList[1].Keywords).toBeArray();
+        expect(parsed.FeatureTypeList[1].DefaultCRS).toBeString();
 
-        expect(parsed.FeatureTypeList[0].WGS84BoundingBox.LowerCorner[0]).toBeNumber();
-        expect(parsed.FeatureTypeList[0].WGS84BoundingBox.UpperCorner[0]).toBeNumber();
+        expect(parsed.FeatureTypeList[1].WGS84BoundingBox.LowerCorner[0]).toBeNumber();
+        expect(parsed.FeatureTypeList[1].WGS84BoundingBox.UpperCorner[0]).toBeNumber();
+
+        expect(parsed.FeatureTypeList[1].MetadataURL).toBeString();
     });
 
     test("Filter_Capabilities", () => {

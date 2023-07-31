@@ -16,7 +16,7 @@ Module to work alongside Open Layers for reading WFS Capabilities data (version 
 
 Open Layers (at least up to 7.4.0 version) does not have a native way to do this (see related [issue](https://github.com/openlayers/openlayers/issues/8909)), hence the creation of this module that does not depend on any other external dependency other than what comes with Ol.
 
-## How to use
+## Usage
 ```js
 import WFSCapabilities from 'ol-wfs-capabilities';
 
@@ -24,6 +24,30 @@ const parser = new WFSCapabilities();
 
 const parsedCapabilities = parser.read(myWfsCapabilitiesSource);
 ```
+
+## Changelog
+
+See CHANGELOG for details of changes in each release.
+
+## Install
+
+### Parcel, Webpack, etc.
+
+NPM package: [ol-wfs-capabilities](https://www.npmjs.com/package/ol-wfs-capabilities).
+
+Install the package via `npm`
+
+    npm install ol-wfs-capabilities
+
+#### JS
+
+```js
+import WFSCapabilities from 'ol-wfs-capabilities';
+```
+
+##### TypeScript type definition
+
+TypeScript types are shipped with the project in the dist directory and should be automatically used in a TypeScript project. Interfaces are provided for the Options.
 
 ## License
 MIT (c) Gastón Zalba.
