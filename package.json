@@ -1,6 +1,6 @@
 {
   "name": "ol-wfs-capabilities",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Format for reading WFS capabilities data",
   "main": "lib/WFSCapabilities.js",
   "module": "lib/WFSCapabilities.js",
@@ -15,7 +15,8 @@
     "format": "eslint --fix lib",
     "test": "jest",
     "generate-types": "tsc --project config/tsconfig-build.json --declaration --declarationMap --emitDeclarationOnly --outdir lib",
-    "typecheck": "tsc --pretty"
+    "typecheck": "tsc --pretty",
+    "watch": "rollup -w --config rollup.config.dist.js --dev"
   },
   "keywords": [
     "ol",
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.22.9",
     "@openlayers/eslint-plugin": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^15.2.1",
     "babel-jest": "^29.6.1",
     "eslint": "^8.46.0",
     "eslint-config-openlayers": "^18.0.0",
@@ -47,6 +49,10 @@
     "jest-environment-jsdom": "^29.6.1",
     "jest-extended": "^2.0.0",
     "ol": "^7.4.0",
+    "rollup": "^3.28.1",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^2.0.2",
     "typescript": "^5.1.6"
   },
   "dependencies": {},

@@ -10,3 +10,7 @@
 * Added types
 * Fixed some invalids comments types
 * Added CHANGELOG file
+
+## v1.0.3
+* Added online example
+* Added `watch` script

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+  <meta charset="UTF-8">
+  <title>OpenLayers - Ol WFSCapabilities parser</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.5.0/ol.css" />
+  <link rel="stylesheet" href="./reset.css" />
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    h1 {
+      font-size: 25px;
+      font-weight: 500;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    b {
+      font-weight: 600;
+    }
+
+    #actions-container {
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    #texts-container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    #texts-container label {
+      margin-bottom: 10px;
+      display: block;
+      font-weight: 600;
+    }
+
+    .text-container {
+      padding: 20px;
+      flex: 0 1 50%;
+    }
+
+    textarea {
+      width: 100%;
+      background: #e1e1e1;
+      border-radius: 4px;
+    }
+
+    button {
+      display: inline-block;
+      outline: none;
+      cursor: pointer;
+      border-radius: 4px;
+      line-height: 1.15;
+      font-size: 14px;
+      height: 36px;
+      word-spacing: 0px;
+      letter-spacing: .0892857143em;
+      text-decoration: none;
+      text-transform: uppercase;
+      min-width: 64px;
+      text-align: center;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    button.secondary {
+      font-weight: 500;
+      padding: 0 15px;
+      color: #d6211b;
+      background: transparent;
+      border: 1px solid #d6211b;
+      transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    button.secondary:hover {
+      background: #f4f4f4;
+    }
+
+    button.primary {
+      font-weight: 500;
+      padding: 0 16px;
+      color: #fff;
+      background: #6200ee;
+      line-height: 1.15;
+      font-size: 14px;
+      border: none;
+      box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+      transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    button.primary:hover {
+      background: rgb(98, 0, 238);
+      box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ol WFSCapabilities parser</h1>
+  <div id="actions-container">
+    <button id="parseBtn" type="button" class="primary">Convert</button>
+    <button id="cleanBtn" type="button" class="secondary">Clean</button>
+  </div>
+  <div id="texts-container">
+    <div class="text-container">
+      <label for="raw">Input raw</label>
+      <textarea id="raw" name="raw" rows="30"></textarea>
+    </div>
+    <div class="text-container">
+      <label for="parsed">Output parsed</label>
+      <textarea id="parsed" name="parsed" rows="30"></textarea>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/ol@v7.5.0/dist/ol.js"></script>
+  <script src="../dist/WFSCapabilities.js"></script>
+  <script src="converter.js"></script>
+</body>
+
+</html>

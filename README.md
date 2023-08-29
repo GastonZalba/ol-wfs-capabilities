@@ -16,6 +16,10 @@ Module to work alongside Open Layers for reading WFS Capabilities data (version 
 
 Open Layers (at least up to 7.4.0 version) does not have a native way to do this (see related [issue](https://github.com/openlayers/openlayers/issues/8909)), hence the creation of this module that does not depend on any other external dependency other than what comes with Ol.
 
+
+## Online example
+See [converter](https://raw.githack.com/GastonZalba/ol-wfs-capabilities/main/examples/converter.html) to text and parse data
+
 ## Usage
 ```js
 import WFSCapabilities from 'ol-wfs-capabilities';
