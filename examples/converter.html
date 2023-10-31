@@ -113,12 +113,21 @@
 <body>
   <h1>Ol WFSCapabilities parser</h1>
   <div id="actions-container">
-    <button id="parseBtn" type="button" class="primary">Convert</button>
-    <button id="cleanBtn" type="button" class="secondary">Clean</button>
+    <div>
+      <div style="margin-bottom:10px">Test WFS versions</div>
+      <button id="200" type="button" class="secondary">2.0.0</button>
+      <button id="110" type="button" class="secondary">1.1.0</button>
+      <button id="100" type="button" class="secondary">1.0.0</button>
+    </div>
+    <br/><br/>
+    <div>
+      <button id="parseBtn" type="button" class="primary">Convert</button>
+      <button id="cleanBtn" type="button" class="secondary">Clean</button>
+    </div>
   </div>
   <div id="texts-container">
     <div class="text-container">
-      <label for="raw">Input raw</label>
+      <label for="raw">Input raw <span id="version"></span></label>
       <textarea id="raw" name="raw" rows="30"></textarea>
     </div>
     <div class="text-container">

@@ -14,3 +14,7 @@
 ## v1.0.3
 * Added online example
 * Added `watch` script
+
+## v1.1.0
+* Updated dependencies
+* Added support for WFS versions 1.0.0 and 1.1.0

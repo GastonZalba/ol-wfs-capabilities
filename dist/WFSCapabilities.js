@@ -1,5 +1,5 @@
 
-(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35730/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('ol/format/XML.js'), require('ol/xml.js'), require('ol/format/xlink.js'), require('ol/format/xsd.js')) :
   typeof define === 'function' && define.amd ? define(['ol/format/XML.js', 'ol/xml.js', 'ol/format/xlink.js', 'ol/format/xsd.js'], factory) :
@@ -18,7 +18,12 @@
     null,
     'http://www.opengis.net/fes/2.0',
     'http://www.opengis.net/ows/1.1',
+    'http://www.opengis.net/ows',
+    'http://www.opengis.net/wfs',
     'http://www.opengis.net/wfs/2.0',
+    'http://www.opengis.net/ogc',
+    'http://www.opengis.net/gml',
+    'http://www.opengis.net/gml/3.2',
   ];
 
   /**
@@ -26,13 +31,56 @@
    * @type {Object<string, Object<string, import("ol/xml.js").Parser>>}
    */
   // @ts-ignore
-  const PARSERS = xml_js.makeStructureNS(NAMESPACE_URIS, {
+  const PARSERS_200 = xml_js.makeStructureNS(NAMESPACE_URIS, {
     'ServiceIdentification': xml_js.makeObjectPropertySetter(readServiceIdentification),
     'ServiceProvider': xml_js.makeObjectPropertySetter(readServiceProvider),
     'OperationsMetadata': xml_js.makeObjectPropertySetter(readOperationsMetadata),
     'FeatureTypeList': xml_js.makeObjectPropertySetter(readFeatureTypeList),
     'Filter_Capabilities': xml_js.makeObjectPropertySetter(readFilter_Capabilities),
   });
+
+  /**
+   * @const
+   * @type {Object<string, Object<string, import("ol/xml.js").Parser>>}
+   */
+  // @ts-ignore
+  const PARSERS_110 = xml_js.makeStructureNS(NAMESPACE_URIS, {
+    'ServiceIdentification': xml_js.makeObjectPropertySetter(readServiceIdentification),
+    'ServiceProvider': xml_js.makeObjectPropertySetter(readServiceProvider),
+    'OperationsMetadata': xml_js.makeObjectPropertySetter(readOperationsMetadata),
+    'FeatureTypeList': xml_js.makeObjectPropertySetter(readFeatureTypeList),
+    'Filter_Capabilities': xml_js.makeObjectPropertySetter(readFilter_Capabilities),
+  });
+
+  /**
+   * @const
+   * @type {Object<string, Object<string, import("ol/xml.js").Parser>>}
+   */
+  // @ts-ignore
+  const PARSERS_100 = xml_js.makeStructureNS(NAMESPACE_URIS, {
+    'Service': xml_js.makeObjectPropertySetter(readServiceIdentification),
+    'OperationsMetadata': xml_js.makeObjectPropertySetter(readOperationsMetadata),
+    'FeatureTypeList': xml_js.makeObjectPropertySetter(readFeatureTypeList),
+    'Filter_Capabilities': xml_js.makeObjectPropertySetter(readFilter_Capabilities),
+  });
+
+  /**
+   *
+   * @param {string} version WFSCapabilities version number
+   * @return {Object<string, Object<string, import("ol/xml.js").Parser>>} Valid parser for the current version
+   */
+  function getParser(version) {
+    if (version === '2.0.0') {
+      return PARSERS_200;
+    }
+    if (version === '1.1.0') {
+      return PARSERS_110;
+    }
+    if (version === '1.0.0') {
+      return PARSERS_100;
+    }
+    return null;
+  }
 
   /**
    * @classdesc
@@ -60,7 +108,7 @@
         {
           'version': this.version,
         },
-        PARSERS,
+        getParser(this.version),
         node,
         []
       );
