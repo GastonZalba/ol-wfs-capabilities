@@ -21,12 +21,12 @@ describe("Capabilities Parser - version 1.0.0", () => {
 
     test("Service", () => {
         // key different from 2.0.0
-        expect(parsed.Service.Name).toBeDefined();
-        expect(parsed.Service.Title).toBeDefined();
-        expect(parsed.Service.Abstract).toBeDefined();
-        expect(parsed.Service.Keywords).toBeDefined();
-        expect(parsed.Service.Fees).toBeDefined();
-        expect(parsed.Service.AccessConstraints).toBeDefined();
+        expect(parsed.Service.Name).toBeString()
+        expect(parsed.Service.Title).toBeString()
+        expect(parsed.Service.Abstract).toBeString()
+        expect(parsed.Service.Keywords.length).toBeGreaterThan(1);
+        expect(parsed.Service.Fees).toBeString()
+        expect(parsed.Service.AccessConstraints).toBeString()
     });
 
     test("Capability", () => {
@@ -39,7 +39,7 @@ describe("Capabilities Parser - version 1.0.0", () => {
         expect(parsed.Capability.Request[0].DCPType.HTTP.Get).toBeString();
         expect(parsed.Capability.Request[0].DCPType.HTTP.Post).toBeString();
 
-        expect(parsed.Capability.Request[1].SchemaDescriptionLanguage).toBeArray();
+        expect(parsed.Capability.Request[1].SchemaDescriptionLanguage.length).toBe(1);
 
         expect(parsed.Capability.Request[2].ResultFormat).toBeArray();
 
@@ -49,9 +49,10 @@ describe("Capabilities Parser - version 1.0.0", () => {
         expect(parsed.FeatureTypeList).toBeDefined();
         
         // key different from 2.0.0
-        expect(parsed.FeatureTypeList.Operations.length).toBeArray();
+        expect(parsed.FeatureTypeList.Operations.length).toBe(1);
+        expect(parsed.FeatureTypeList.Operations[0]).toBe('Query');
 
-        expect(parsed.FeatureTypeList.FeatureType.length).toBeArray();
+        expect(parsed.FeatureTypeList.FeatureType.length).toBeGreaterThan(1);
         expect(parsed.FeatureTypeList.FeatureType[1].Name).toBeString();
         expect(parsed.FeatureTypeList.FeatureType[1].Title).toBeString();
         expect(parsed.FeatureTypeList.FeatureType[1].Abstract).toBeString();
@@ -66,15 +67,16 @@ describe("Capabilities Parser - version 1.0.0", () => {
     });
 
     test("Filter_Capabilities", () => {
-        expect(parsed.Filter_Capabilities.Spatial_Capabilities.SpatialOperators.length).toBeGreaterThan(1);
+        expect(parsed.Filter_Capabilities.Spatial_Capabilities.Spatial_Operators.length).toBeGreaterThan(1);
         
-        expect(parsed.Filter_Capabilities.Scalar_Capabilities.ComparisonOperators.length).toBeGreaterThan(1);
-        //expect(parsed.Filter_Capabilities.Scalar_Capabilities.LogicalOperators.length).toBeGreaterThan(1);
+        expect(parsed.Filter_Capabilities.Scalar_Capabilities.Comparison_Operators.length).toBeGreaterThan(1);
+        expect(parsed.Filter_Capabilities.Scalar_Capabilities.Logical_Operators).toBeDefined();
         
-        expect(parsed.Filter_Capabilities.Scalar_Capabilities.ArithmeticOperators.length).toBeGreaterThan(1);
-        expect(parsed.Filter_Capabilities.Scalar_Capabilities.ArithmeticOperators.Functions).toBeGreaterThan(1);
-        expect(parsed.Filter_Capabilities.Scalar_Capabilities.ArithmeticOperators.Functions[0].name).toBeDefined();
-        expect(parsed.Filter_Capabilities.Scalar_Capabilities.ArithmeticOperators.Functions[0].nArgs).toBeNumber();    
+        expect(parsed.Filter_Capabilities.Scalar_Capabilities.Arithmetic_Operators.Simple_Arithmetic).toBeDefined();
+
+        expect(parsed.Filter_Capabilities.Scalar_Capabilities.Arithmetic_Operators.Functions.Function_Names.length).toBeGreaterThan(1);
+        expect(parsed.Filter_Capabilities.Scalar_Capabilities.Arithmetic_Operators.Functions.Function_Names[0].name).toBeDefined();
+        expect(parsed.Filter_Capabilities.Scalar_Capabilities.Arithmetic_Operators.Functions.Function_Names[0].nArgs).toBeNumber();    
     
     });
 

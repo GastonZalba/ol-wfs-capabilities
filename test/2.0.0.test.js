@@ -79,8 +79,9 @@ describe("Capabilities Parser - version 2.0.0", () => {
         expect(parsed.Filter_Capabilities.Conformance.Constraint[0].NoValues).toBeString();
         expect(parsed.Filter_Capabilities.Conformance.Constraint[0].DefaultValue).toBeString();
 
-        expect(parsed.Filter_Capabilities.Id_Capabilities.ResourceIdentifier.name).toBeString();
+        expect(parsed.Filter_Capabilities.Id_Capabilities[0].name).toBeString();
 
+        expect(parsed.Filter_Capabilities.Scalar_Capabilities.LogicalOperators).toBeDefined();
         expect(parsed.Filter_Capabilities.Scalar_Capabilities.ComparisonOperators.length).toBeGreaterThan(1);
 
         expect(parsed.Filter_Capabilities.Spatial_Capabilities.GeometryOperands.length).toBeGreaterThan(1);

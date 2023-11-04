@@ -12,9 +12,9 @@
     </a>
 </p>
 
-Module to work alongside Open Layers for reading WFS Capabilities data (version 2.0.0) and convert it to JSON, complementing the native classes `ol/format/WMSCapabilities` and `ol/format/WMTSCapabilities`.
+Module to work alongside Open Layers for reading WFS Capabilities data (versions 1.0.0, 1.1.0 and 2.0.0) and convert it to JSON, complementing the native classes `ol/format/WMSCapabilities` and `ol/format/WMTSCapabilities`.
 
-Open Layers (at least up to 7.4.0 version) does not have a native way to do this (see related [issue](https://github.com/openlayers/openlayers/issues/8909)), hence the creation of this module that does not depend on any other external dependency other than what comes with Ol.
+Open Layers (at least up to 8.1.0 version) does not have a native way to do this (see related [issue](https://github.com/openlayers/openlayers/issues/8909)), hence the creation of this module that does not depend on any other external dependency other than what comes with Ol.
 
 
 ## Online example

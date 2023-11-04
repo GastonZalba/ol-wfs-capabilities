@@ -15,6 +15,7 @@
 * Added online example
 * Added `watch` script
 
-## v1.1.0
+## v2.0.0
 * Updated dependencies
-* Added support for WFS versions 1.0.0 and 1.1.0
+* Added support for older versions 1.0.0 and 1.1.0
+* Breaking change: Changed "Id_Capabilities" (version 2.0.0) data type (object to array)
