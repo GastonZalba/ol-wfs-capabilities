@@ -26,6 +26,7 @@ describe("Capabilities Parser - version 1.0.0", () => {
         expect(parsed.Service.Abstract).toBeString()
         expect(parsed.Service.Keywords.length).toBeGreaterThan(1);
         expect(parsed.Service.Fees).toBeString()
+        expect(parsed.Service.OnlineResource).toBeString()
         expect(parsed.Service.AccessConstraints).toBeString()
     });
 
