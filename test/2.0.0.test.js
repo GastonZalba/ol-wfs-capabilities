@@ -83,6 +83,7 @@ describe("Capabilities Parser - version 2.0.0", () => {
 
         expect(parsed.Filter_Capabilities.Scalar_Capabilities.LogicalOperators).toBeDefined();
         expect(parsed.Filter_Capabilities.Scalar_Capabilities.ComparisonOperators.length).toBeGreaterThan(1);
+        expect(parsed.Filter_Capabilities.Scalar_Capabilities.ComparisonOperators[0]).toBe('PropertyIsLessThan');
 
         expect(parsed.Filter_Capabilities.Spatial_Capabilities.GeometryOperands.length).toBeGreaterThan(1);
         expect(parsed.Filter_Capabilities.Spatial_Capabilities.SpatialOperators.length).toBeGreaterThan(1);

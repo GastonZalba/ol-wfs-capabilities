@@ -98,6 +98,8 @@ describe("Capabilities Parser - version 1.1.0", () => {
     expect(parsed.Filter_Capabilities.Spatial_Capabilities.SpatialOperators.length).toBeGreaterThan(1);
 
     expect(parsed.Filter_Capabilities.Scalar_Capabilities.ComparisonOperators.length).toBeGreaterThan(1);
+    expect(parsed.Filter_Capabilities.Scalar_Capabilities.ComparisonOperators[0]).toBe('LessThan');
+
     expect(parsed.Filter_Capabilities.Scalar_Capabilities.LogicalOperators).toBeDefined();
     
     // key different from 2.0.0

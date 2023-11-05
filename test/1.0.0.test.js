@@ -71,6 +71,7 @@ describe("Capabilities Parser - version 1.0.0", () => {
         expect(parsed.Filter_Capabilities.Spatial_Capabilities.Spatial_Operators.length).toBeGreaterThan(1);
         
         expect(parsed.Filter_Capabilities.Scalar_Capabilities.Comparison_Operators.length).toBeGreaterThan(1);
+        expect(parsed.Filter_Capabilities.Scalar_Capabilities.Comparison_Operators[0]).toBe('Simple_Comparisons');
         expect(parsed.Filter_Capabilities.Scalar_Capabilities.Logical_Operators).toBeDefined();
         
         expect(parsed.Filter_Capabilities.Scalar_Capabilities.Arithmetic_Operators.Simple_Arithmetic).toBeDefined();
