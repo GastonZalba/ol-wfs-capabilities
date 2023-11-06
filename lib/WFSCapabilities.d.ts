@@ -1,4 +1,5 @@
 export default WFSCapabilities;
+export type Parser = (arg0: Element, arg1: Array<any>) => void;
 /**
  * @classdesc
  * Format for reading WFS capabilities data

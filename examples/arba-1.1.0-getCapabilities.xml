@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:WFS_Capabilities version="1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.opengis.net/wfs" xmlns:wfs="http://www.opengis.net/wfs"
+    xmlns:ows="http://www.opengis.net/ows" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/wfs https://geo.arba.gov.ar/geoserver/schemas/wfs/1.1.0/wfs.xsd"
+    xmlns:idera="geo.arba.gov.ar/idera" updateSequence="190">
+    <ows:ServiceIdentification>
+        <ows:Title>geoARBA - Servicio WFS ARBA</ows:Title>
+        <ows:Abstract>Servicio WFS&#13;
+            ARBA | Agencia de Recaudación de la Provincia de Buenos Aires</ows:Abstract>
+        <ows:Keywords>
+            <ows:Keyword>Planificación de Catastro</ows:Keyword>
+            <ows:Keyword>Cartografía</ows:Keyword>
+            <ows:Keyword>Cartografía</ows:Keyword>
+        </ows:Keywords>
+        <ows:ServiceType>WFS</ows:ServiceType>
+        <ows:ServiceTypeVersion>1.1.0</ows:ServiceTypeVersion>
+        <ows:Fees />
+        <ows:AccessConstraints />
+    </ows:ServiceIdentification>
+    <ows:ServiceProvider>
+        <ows:ProviderName>ARBA</ows:ProviderName>
+        <ows:ServiceContact>
+            <ows:IndividualName>Subgerencia de Tecnología Geoespacial</ows:IndividualName>
+            <ows:PositionName />
+            <ows:ContactInfo>
+                <ows:Phone>
+                    <ows:Voice />
+                    <ows:Facsimile>2214294691</ows:Facsimile>
+                </ows:Phone>
+                <ows:Address>
+                    <ows:DeliveryPoint />
+                    <ows:City>La Plata</ows:City>
+                    <ows:AdministrativeArea>Buenos Aires</ows:AdministrativeArea>
+                    <ows:PostalCode>1900</ows:PostalCode>
+                    <ows:Country>Argentina</ows:Country>
+                    <ows:ElectronicMailAddress>geo@arba.gov.ar</ows:ElectronicMailAddress>
+                </ows:Address>
+            </ows:ContactInfo>
+        </ows:ServiceContact>
+    </ows:ServiceProvider>
+    <ows:OperationsMetadata>
+        <ows:Operation name="GetCapabilities">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="https://geo.arba.gov.ar/geoserver/idera/wfs" />
+                    <ows:Post xlink:href="https://geo.arba.gov.ar/geoserver/idera/wfs" />
+                </ows:HTTP>
+            </ows:DCP>
+            <ows:Parameter name="AcceptVersions">
+                <ows:Value>1.0.0</ows:Value>
+                <ows:Value>1.1.0</ows:Value>
+            </ows:Parameter>
+            <ows:Parameter name="AcceptFormats">
+                <ows:Value>text/xml</ows:Value>
+            </ows:Parameter>
+            <ows:Parameter name="Sections">
+                <ows:Value>ServiceIdentification</ows:Value>
+                <ows:Value>ServiceProvider</ows:Value>
+                <ows:Value>OperationsMetadata</ows:Value>
+                <ows:Value>FeatureTypeList</ows:Value>
+                <ows:Value>Filter_Capabilities</ows:Value>
+            </ows:Parameter>
+        </ows:Operation>
+        <ows:Operation name="DescribeFeatureType">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="https://geo.arba.gov.ar/geoserver/idera/wfs" />
+                    <ows:Post xlink:href="https://geo.arba.gov.ar/geoserver/idera/wfs" />
+                </ows:HTTP>
+            </ows:DCP>
+            <ows:Parameter name="outputFormat">
+                <ows:Value>text/xml; subtype=gml/3.1.1</ows:Value>
+            </ows:Parameter>
+        </ows:Operation>
+        <ows:Operation name="GetFeature">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="https://geo.arba.gov.ar/geoserver/idera/wfs" />
+                    <ows:Post xlink:href="https://geo.arba.gov.ar/geoserver/idera/wfs" />
+                </ows:HTTP>
+            </ows:DCP>
+            <ows:Parameter name="resultType">
+                <ows:Value>results</ows:Value>
+                <ows:Value>hits</ows:Value>
+            </ows:Parameter>
+            <ows:Parameter name="outputFormat">
+                <ows:Value>text/xml; subtype=gml/3.1.1</ows:Value>
+                <ows:Value>GML2</ows:Value>
+                <ows:Value>KML</ows:Value>
+                <ows:Value>SHAPE-ZIP</ows:Value>
+                <ows:Value>application/gml+xml; version=3.2</ows:Value>
+                <ows:Value>application/json</ows:Value>
+                <ows:Value>application/vnd.google-earth.kml xml</ows:Value>
+                <ows:Value>application/vnd.google-earth.kml+xml</ows:Value>
+                <ows:Value>csv</ows:Value>
+                <ows:Value>gml3</ows:Value>
+                <ows:Value>gml32</ows:Value>
+                <ows:Value>json</ows:Value>
+                <ows:Value>text/csv</ows:Value>
+                <ows:Value>text/xml; subtype=gml/2.1.2</ows:Value>
+                <ows:Value>text/xml; subtype=gml/3.2</ows:Value>
+            </ows:Parameter>
+            <ows:Constraint name="LocalTraverseXLinkScope">
+                <ows:Value>2</ows:Value>
+            </ows:Constraint>
+        </ows:Operation>
+        <ows:Operation name="GetGmlObject">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="https://geo.arba.gov.ar/geoserver/idera/wfs" />
+                    <ows:Post xlink:href="https://geo.arba.gov.ar/geoserver/idera/wfs" />
+                </ows:HTTP>
+            </ows:DCP>
+        </ows:Operation>
+    </ows:OperationsMetadata>
+    <FeatureTypeList>
+        <Operations>
+            <Operation>Query</Operation>
+        </Operations>
+        <FeatureType xmlns:idera="geo.arba.gov.ar/idera">
+            <Name>idera:Chacra</Name>
+            <Title>Chacra</Title>
+            <Abstract>Extensión de territorio cuya superficie es superior a 12 hectáreas y no excede 120&#13;
+hectáreas, totalmente rodeadas de vías de comunicación.&#13;
+Dpto. Cartografico&#13;
+Dpto. Procesamiento SIG y Calidad de Datos Geoespaciales&#13;
+ARBA | Agencia de Recaudación de la Provincia de Buenos Aires</Abstract>
+            <ows:Keywords>
+                <ows:Keyword>chacra</ows:Keyword>
+                <ows:Keyword>features</ows:Keyword>
+            </ows:Keywords>
+            <DefaultSRS>urn:x-ogc:def:crs:EPSG:22185</DefaultSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3410</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:4326</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:5347</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22181</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22182</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22183</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22184</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22186</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22194</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22195</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22196</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3857</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:900913</OtherSRS>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>-63.691806546766266 -40.86909557016088</ows:LowerCorner>
+                <ows:UpperCorner>-56.485645099644486 -33.31114162129831</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <MetadataURL type="19115" format="text/plain">http://geo.arba.gov.ar/geonetwork/srv/api/records/8af0517b-04e3-4e50-9cbd-ae3d1e1dbe79</MetadataURL>
+        </FeatureType>
+        <FeatureType xmlns:idera="geo.arba.gov.ar/idera">
+            <Name>idera:Circunscripcion</Name>
+            <Title>Circunscripcion</Title>
+            <Abstract>El Departamento (Partido) se dividirá en circunscripciones, pudiendo contener en&#13;
+conjunto o separadamente plantas urbanas, suburbanas y rurales.&#13;
+Dpto. Cartográfico&#13;
+Dpto. Procesamiento SIG y Calidad de Datos Geoespaciales&#13;
+ARBA | Agencia de Recaudación de la Provincia de Buenos Aires</Abstract>
+            <ows:Keywords>
+                <ows:Keyword>features</ows:Keyword>
+                <ows:Keyword>circunscripcion</ows:Keyword>
+            </ows:Keywords>
+            <DefaultSRS>urn:x-ogc:def:crs:EPSG:22185</DefaultSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3410</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:4326</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:5347</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22181</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22182</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22183</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22184</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22186</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22194</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22195</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22196</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3857</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:900913</OtherSRS>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>-63.70333452633778 -41.068857759109534</ows:LowerCorner>
+                <ows:UpperCorner>-56.463915508477236 -33.21898943052162</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <MetadataURL type="19115" format="text/plain">http://geo.arba.gov.ar/geonetwork/srv/api/records/f0234c3f-6091-465f-8579-d2ada890831c</MetadataURL>
+        </FeatureType>
+        <FeatureType xmlns:idera="geo.arba.gov.ar/idera">
+            <Name>idera:Departamento</Name>
+            <Title>Departamento</Title>
+            <Abstract>División político administrativa de segundo orden. Incluye partido y comuna.&#13;
+Dpto. Cartografico&#13;
+Dpto. Procesamiento SIG y Calidad de Datos Geoespaciales&#13;
+ARBA | Agencia de Recaudación de la Provincia de Buenos Aires</Abstract>
+            <ows:Keywords>
+                <ows:Keyword>features</ows:Keyword>
+                <ows:Keyword>departamento</ows:Keyword>
+            </ows:Keywords>
+            <DefaultSRS>urn:x-ogc:def:crs:EPSG:22185</DefaultSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3410</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:4326</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:5347</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22181</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22182</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22183</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22184</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22186</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22194</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22195</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22196</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3857</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:900913</OtherSRS>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>-63.70335336947817 -41.069194528081965</ows:LowerCorner>
+                <ows:UpperCorner>-56.463897511901685 -33.21898943658257</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <MetadataURL type="19115" format="text/plain">https://geo.arba.gov.ar/geonetwork/srv/api/records/7a290489-5e2c-4503-b125-d7303973c65d</MetadataURL>
+        </FeatureType>
+        <FeatureType xmlns:idera="geo.arba.gov.ar/idera">
+            <Name>idera:Fraccion</Name>
+            <Title>Fraccion</Title>
+            <Abstract>No tienen especificaciones de ningún tipo dentro de la Ley 10707, es por ello que&#13;
+podemos encontrarlas como macizos puros, o como subdivisiones de algún&#13;
+macizo puro.&#13;
+Dpto. Cartografico&#13;
+Dpto. Procesamiento SIG y Calidad de Datos Geoespaciales&#13;
+ARBA | Agencia de Recaudación de la Provincia de Buenos Aires</Abstract>
+            <ows:Keywords>
+                <ows:Keyword>features</ows:Keyword>
+                <ows:Keyword>fraccion</ows:Keyword>
+            </ows:Keywords>
+            <DefaultSRS>urn:x-ogc:def:crs:EPSG:22185</DefaultSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3410</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:4326</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:5347</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22181</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22182</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22183</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22184</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22186</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22194</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22195</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22196</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3857</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:900913</OtherSRS>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>-64.02769282801164 -40.8013641522147</ows:LowerCorner>
+                <ows:UpperCorner>-13.441528121970954 46.56119363209354</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <MetadataURL type="19115" format="text/plain">http://geo.arba.gov.ar/geonetwork/srv/api/records/8c00286d-55c3-478b-94fd-03071e798e26</MetadataURL>
+        </FeatureType>
+        <FeatureType xmlns:idera="geo.arba.gov.ar/idera">
+            <Name>idera:Lado_Catastral</Name>
+            <Title>Lado_Catastral</Title>
+            <Abstract>Valor numérico del lado de un polígono referido a un objeto catastral y que&#13;
+representa su longitud.&#13;
+Dpto. Cartográfico&#13;
+Dpto. Procesamiento SIG y Calidad de Datos Geoespaciales&#13;
+ARBA | Agencia de Recaudación de la Provincia de Buenos Aires</Abstract>
+            <ows:Keywords>
+                <ows:Keyword>features</ows:Keyword>
+                <ows:Keyword>Lado_Catastral</ows:Keyword>
+            </ows:Keywords>
+            <DefaultSRS>urn:x-ogc:def:crs:EPSG:22185</DefaultSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3410</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:4326</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:5347</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22181</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22182</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22183</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22184</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22186</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22194</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22195</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22196</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3857</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:900913</OtherSRS>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>-61.78367292525201 -39.06977661485278</ows:LowerCorner>
+                <ows:UpperCorner>-58.22813605875796 -23.36271442737453</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <MetadataURL type="19115" format="text/plain">http://geo.arba.gov.ar/geonetwork/srv/api/records/62780da6-68fe-48d8-92a6-27bd12cd4a47</MetadataURL>
+        </FeatureType>
+        <FeatureType xmlns:idera="geo.arba.gov.ar/idera">
+            <Name>idera:Manzana</Name>
+            <Title>Manzana</Title>
+            <Abstract>Extensión de territorio cuya superficie no debe exceder las 1.5 hectáreas y están&#13;
+totalmente rodeadas de vías de comunicación.&#13;
+Dpto. Cartográfico&#13;
+Dpto. Procesamiento SIG y Calidad de Datos Geoespaciales&#13;
+ARBA | Agencia de Recaudación de la Provincia de Buenos Aires</Abstract>
+            <ows:Keywords>
+                <ows:Keyword>manzana</ows:Keyword>
+                <ows:Keyword>features</ows:Keyword>
+            </ows:Keywords>
+            <DefaultSRS>urn:x-ogc:def:crs:EPSG:22185</DefaultSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3410</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:4326</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:5347</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22181</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22182</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22183</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22184</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22186</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22194</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22195</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22196</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3857</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:900913</OtherSRS>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>-63.6780210123993 -40.85283789900133</ows:LowerCorner>
+                <ows:UpperCorner>-56.47851386221763 -33.24600364427996</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <MetadataURL type="19115" format="text/plain">http://geo.arba.gov.ar/geonetwork/srv/api/records/ef7bd7fe-a5d8-4fb3-9f32-4c4cbeab344a</MetadataURL>
+        </FeatureType>
+        <FeatureType xmlns:idera="geo.arba.gov.ar/idera">
+            <Name>idera:Otro_edificio_gubernamental</Name>
+            <Title>Otro_edificio_gubernamental</Title>
+            <Abstract />
+            <ows:Keywords>
+                <ows:Keyword>features</ows:Keyword>
+                <ows:Keyword>Centro de servicio local - ARBA</ows:Keyword>
+            </ows:Keywords>
+            <DefaultSRS>urn:x-ogc:def:crs:EPSG:5347</DefaultSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3410</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:4326</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22181</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22182</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22183</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22184</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22185</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22186</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22194</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22195</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22196</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3857</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:900913</OtherSRS>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>-63.52971358926849 -40.83923386431642</ows:LowerCorner>
+                <ows:UpperCorner>-56.484240352927024 -33.29127827888569</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+        </FeatureType>
+        <FeatureType xmlns:idera="geo.arba.gov.ar/idera">
+            <Name>idera:Parcela</Name>
+            <Title>Parcela</Title>
+            <Abstract>Se denomina parcela a la cosa inmueble de extensión territorial continua,&#13;
+deslindado por una poligonal cerrada, perteneciente a un propietario o a varios en&#13;
+condominio, o poseído por una persona o por varias en común, cuya existencia y&#13;
+elementos esenciales consten en un plano registrado en el organismo catastral.&#13;
+Dpto. Cartográfico&#13;
+Dpto. Procesamiento SIG y Calidad de Datos Geoespaciales&#13;
+ARBA | Agencia de Recaudación de la Provincia de Buenos Aires</Abstract>
+            <ows:Keywords>
+                <ows:Keyword>features</ows:Keyword>
+                <ows:Keyword>parcela</ows:Keyword>
+            </ows:Keywords>
+            <DefaultSRS>urn:x-ogc:def:crs:EPSG:22185</DefaultSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3410</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:4326</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:5347</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22181</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22182</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22183</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22184</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22186</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22194</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22195</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22196</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3857</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:900913</OtherSRS>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>-121.57933419819251 -700.5721204697189</ows:LowerCorner>
+                <ows:UpperCorner>39.191632967838004 46.559941480374654</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <MetadataURL type="19115" format="text/plain">http://geo.arba.gov.ar/geonetwork/srv/api/records/4c46d362-980d-4438-a002-069ea76235d4</MetadataURL>
+        </FeatureType>
+        <FeatureType xmlns:idera="geo.arba.gov.ar/idera">
+            <Name>idera:Quinta</Name>
+            <Title>Quinta</Title>
+            <Abstract>Extensión de territorio cuya superficie es mayor a 1.5 hectáreas y no supere las&#13;
+12 hectáreas.&#13;
+Dpto. Cartografico&#13;
+Dpto. Procesamiento SIG y Calidad de Datos Geoespaciales&#13;
+ARBA | Agencia de Recaudación de la Provincia de Buenos Aires</Abstract>
+            <ows:Keywords>
+                <ows:Keyword>features</ows:Keyword>
+                <ows:Keyword>quinta</ows:Keyword>
+            </ows:Keywords>
+            <DefaultSRS>urn:x-ogc:def:crs:EPSG:22185</DefaultSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3410</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:4326</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:5347</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22181</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22182</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22183</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22184</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22186</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22194</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22195</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22196</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3857</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:900913</OtherSRS>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>-63.68053181445696 -40.85311583397806</ows:LowerCorner>
+                <ows:UpperCorner>-56.484609771550126 -33.441570242335246</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <MetadataURL type="19115" format="text/plain">http://geo.arba.gov.ar/geonetwork/srv/api/records/8e918725-98ff-4f25-8397-2fba53d916c4</MetadataURL>
+        </FeatureType>
+        <FeatureType xmlns:idera="geo.arba.gov.ar/idera">
+            <Name>idera:Seccion_catastral</Name>
+            <Title>Seccion_catastral</Title>
+            <Abstract>Las plantas urbanas y suburbanas se dividirán en secciones llevando sus límites&#13;
+por calles, si es posible principales o avenidas y a falta de calles por un deslinde&#13;
+inconfundible de propiedad, no debiendo contener en general cada sección&#13;
+urbana un número mayor de cien manzanas.&#13;
+Dpto. Cartografico&#13;
+Dpto. Procesamiento SIG y Calidad de Datos Geoespaciales&#13;
+ARBA | Agencia de Recaudación de la Provincia de Buenos Aires</Abstract>
+            <ows:Keywords>
+                <ows:Keyword>features</ows:Keyword>
+                <ows:Keyword>seccion_catastral</ows:Keyword>
+            </ows:Keywords>
+            <DefaultSRS>urn:x-ogc:def:crs:EPSG:22185</DefaultSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3410</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:4326</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:5347</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22181</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22182</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22183</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22184</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22186</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22194</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22195</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22196</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3857</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:900913</OtherSRS>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>-63.69233559079571 -40.87130101405316</ows:LowerCorner>
+                <ows:UpperCorner>-56.474861561850624 -33.22431959941012</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <MetadataURL type="19115" format="text/plain">http://geo.arba.gov.ar/geonetwork/srv/api/records/0bb79d7e-4fd9-4657-8552-f84e3ae57a0b</MetadataURL>
+        </FeatureType>
+        <FeatureType xmlns:idera="geo.arba.gov.ar/idera">
+            <Name>idera:Subparcela</Name>
+            <Title>Subparcela</Title>
+            <Abstract>La propiedad de la unidad funcional o subparcela comprende la parte indivisa del&#13;
+terreno, de las cosas y partes de uso común del inmueble o indispensables para&#13;
+mantener su seguridad, y puede abarcar una o más unidades complementarias&#13;
+destinadas a servirla.&#13;
+Dpto. Cartográfico&#13;
+Dpto. Procesamiento SIG y Calidad de Datos Geoespaciales&#13;
+ARBA | Agencia de Recaudación de la Provincia de Buenos Aires</Abstract>
+            <ows:Keywords>
+                <ows:Keyword>features</ows:Keyword>
+                <ows:Keyword>subparcela</ows:Keyword>
+            </ows:Keywords>
+            <DefaultSRS>urn:x-ogc:def:crs:EPSG:22185</DefaultSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3410</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:4326</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:5347</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22181</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22182</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22183</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22184</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22186</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22194</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22195</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:22196</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:3857</OtherSRS>
+            <OtherSRS>urn:x-ogc:def:crs:EPSG:900913</OtherSRS>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>-65.5911597300838 -89.55551666391395</ows:LowerCorner>
+                <ows:UpperCorner>127.54409374078963 -29.01916527297955</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <MetadataURL type="19115" format="text/plain">http://geo.arba.gov.ar/geonetwork/srv/api/records/857cd9e0-b6c5-4fd4-bc62-23f1f93a0896</MetadataURL>
+        </FeatureType>
+    </FeatureTypeList>
+    <ogc:Filter_Capabilities>
+        <ogc:Spatial_Capabilities>
+            <ogc:GeometryOperands>
+                <ogc:GeometryOperand>gml:Envelope</ogc:GeometryOperand>
+                <ogc:GeometryOperand>gml:Point</ogc:GeometryOperand>
+                <ogc:GeometryOperand>gml:LineString</ogc:GeometryOperand>
+                <ogc:GeometryOperand>gml:Polygon</ogc:GeometryOperand>
+            </ogc:GeometryOperands>
+            <ogc:SpatialOperators>
+                <ogc:SpatialOperator name="Disjoint" />
+                <ogc:SpatialOperator name="Equals" />
+                <ogc:SpatialOperator name="DWithin" />
+                <ogc:SpatialOperator name="Beyond" />
+                <ogc:SpatialOperator name="Intersects" />
+                <ogc:SpatialOperator name="Touches" />
+                <ogc:SpatialOperator name="Crosses" />
+                <ogc:SpatialOperator name="Within" />
+                <ogc:SpatialOperator name="Contains" />
+                <ogc:SpatialOperator name="Overlaps" />
+                <ogc:SpatialOperator name="BBOX" />
+            </ogc:SpatialOperators>
+        </ogc:Spatial_Capabilities>
+        <ogc:Scalar_Capabilities>
+            <ogc:LogicalOperators />
+            <ogc:ComparisonOperators>
+                <ogc:ComparisonOperator>LessThan</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>GreaterThan</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>LessThanEqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>GreaterThanEqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>EqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>NotEqualTo</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>Like</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>Between</ogc:ComparisonOperator>
+                <ogc:ComparisonOperator>NullCheck</ogc:ComparisonOperator>
+            </ogc:ComparisonOperators>
+            <ogc:ArithmeticOperators>
+                <ogc:SimpleArithmetic />
+                <ogc:Functions>
+                    <ogc:FunctionNames>
+                        <ogc:FunctionName nArgs="1">abs</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">abs_2</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">abs_3</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">abs_4</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">acos</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">AddCoverages</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">Affine</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">Aggregate</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">And</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Area</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">area2</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">AreaGrid</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="0">array</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">asin</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">atan</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">atan2</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">attributeCount</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">BandMerge</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="0">bands</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">BandSelect</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-6">BarnesSurface</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">between</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">boundary</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">boundaryDimension</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="0">boundedBy</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Bounds</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">buffer</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">BufferFeatureCollection</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">bufferWithSegments</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="7">Categorize</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">ceil</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">centroid</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">classify</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">ClassifyByRange</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">Clip</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">CollectGeometries</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Collection_Average</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Collection_Bounds</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Collection_Count</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Collection_Max</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Collection_Median</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Collection_Min</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Collection_Nearest</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Collection_Sum</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Collection_Unique</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">Concatenate</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">contains</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">Contour</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">contrast</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">convert</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">convexHull</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">ConvolveCoverage</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">cos</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">Count</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">CoverageClassStats</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">CropCoverage</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">crosses</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">darken</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">dateDifference</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">dateFormat</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">dateParse</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">desaturate</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">difference</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">dimension</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">disjoint</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">disjoint3D</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">distance</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">distance3D</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">double2bool</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">endAngle</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">endPoint</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">env</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">envelope</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">EqualArea</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">EqualInterval</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">equalsExact</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">equalsExactTolerance</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">equalTo</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">exp</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">exteriorRing</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">Feature</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">FeatureClassStats</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">floor</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="0">footprints</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="0">geometry</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">geometryType</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">geomFromWKT</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">geomLength</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">getGeometryN</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">getX</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">getY</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">getz</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">grayscale</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">greaterEqualThan</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">greaterThan</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-3">Grid</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-4">GroupCandidateSelection</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-5">Heatmap</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">hsl</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="0">id</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">IEEEremainder</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">if_then_else</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">in</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="11">in10</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">in2</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="4">in3</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="5">in4</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="6">in5</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="7">in6</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="8">in7</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="9">in8</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="10">in9</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">inArray</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">InclusionFeatureCollection</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">int2bbool</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">int2ddouble</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">interiorPoint</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">interiorRingN</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-5">Interpolate</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">intersection</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">IntersectionFeatureCollection</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">intersects</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">intersects3D</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">isCached</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">isClosed</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="0">isCoverage</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">isEmpty</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">isInstanceOf</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">isLike</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">isNull</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">isometric</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">isRing</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">isSimple</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">isValid</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">isWithinDistance</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">isWithinDistance3D</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">Jenks</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">Jiffle</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">jsonArrayContains</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">jsonPointer</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="0">language</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">lapply</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">length</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">lessEqualThan</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">lessThan</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">lighten</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">list</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">listMultiply</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">litem</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">literate</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">log</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="4">LRSGeocode</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-4">LRSMeasure</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="5">LRSSegment</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">mapGet</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">max</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">max_2</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">max_3</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">max_4</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">min</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">min_2</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">min_3</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">min_4</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">mincircle</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">minimumdiameter</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">minrectangle</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">mix</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">modulo</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">MultiplyCoverages</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">Nearest</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">NormalizeCoverage</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">not</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">notEqualTo</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="0">now</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">numberFormat</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="5">numberFormat2</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">numGeometries</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">numInteriorRing</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">numPoints</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">octagonalenvelope</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">offset</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">Or</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">overlaps</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">parameter</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">parseBoolean</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">parseDouble</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">parseInt</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">parseLong</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">pgNearest</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="0">pi</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">PointBuffers</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">pointN</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-7">PointStacker</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">PolygonExtraction</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">pow</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">property</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">PropertyExists</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">Quantile</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">Query</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="0">random</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">RangeLookup</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">RasterAsPointCollection</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">RasterZonalStatistics</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-6">RasterZonalStatistics2</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="5">Recode</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">RectangularClip</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">relate</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">relatePattern</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">Reproject</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-3">rescaleToPixels</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">rint</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">round</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">round_2</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">roundDouble</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">saturate</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-5">ScaleCoverage</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">setCRS</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">shade</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">Simplify</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">sin</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">size</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">Snap</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">spin</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">sqrt</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">StandardDeviation</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">startAngle</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">startPoint</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="4">strAbbreviate</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">strCapitalize</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">strConcat</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">strDefaultIfBlank</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">strEndsWith</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">strEqualsIgnoreCase</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">strIndexOf</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="4">stringTemplate</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">strLastIndexOf</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">strLength</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">strMatches</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">strPosition</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="4">strReplace</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">strStartsWith</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">strStripAccents</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">strSubstring</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">strSubstringStart</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">strToLowerCase</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">strToUpperCase</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">strTrim</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">strTrim2</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">strURLEncode</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">StyleCoverage</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">symDifference</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">tan</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">tint</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">toDegrees</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">toRadians</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">touches</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">toWKT</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">Transform</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-1">TransparencyFill</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">union</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">UnionFeatureCollection</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">Unique</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-2">UniqueInterval</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="-4">VectorToRaster</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="3">VectorZonalStatistics</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="1">vertices</ogc:FunctionName>
+                        <ogc:FunctionName nArgs="2">within</ogc:FunctionName>
+                    </ogc:FunctionNames>
+                </ogc:Functions>
+            </ogc:ArithmeticOperators>
+        </ogc:Scalar_Capabilities>
+        <ogc:Id_Capabilities>
+            <ogc:FID />
+            <ogc:EID />
+        </ogc:Id_Capabilities>
+    </ogc:Filter_Capabilities>
+</wfs:WFS_Capabilities>
