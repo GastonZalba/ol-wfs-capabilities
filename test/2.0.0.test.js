@@ -16,7 +16,7 @@ describe("Capabilities Parser - version 2.0.0", () => {
     test("Open and parse", () => {
         parsed = parser.read(capabilities);
         expect(Object.keys(parsed).length).toBeGreaterThan(1);
-        fs.writeFileSync('test/wfs-2.0.0-parsed.json', JSON.stringify(parsed), { encoding: 'utf-8' });
+        fs.writeFileSync('test/wfs-2.0.0-parsed.json', JSON.stringify(parsed, undefined, 2), { encoding: 'utf-8' });
     });
 
     test("ServiceIdentification", () => {
